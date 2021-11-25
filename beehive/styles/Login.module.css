@@ -1,0 +1,54 @@
+.container {
+  display: flex;
+  background-color: var(--primary-color);
+}
+
+.container_box {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+}
+
+.login_section {
+  background-color: white;
+}
+
+.login_form_section {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.welcome {
+  font-size: 30px;
+  margin: 10px 10%;
+}
+
+.description {
+  margin: 0px 10% 30px 10%;
+}
+
+.login_form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.login_form input {
+  width: 60%;
+  font-size: 15px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  margin: 10px 10%;
+}
+
+.login_button {
+  width: 60%;
+  font-size: 16px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  margin: 10px 10%;
+  background-color: var(--primary-color);
+  border: none;
+}
