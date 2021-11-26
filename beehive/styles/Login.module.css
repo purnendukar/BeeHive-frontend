@@ -62,7 +62,7 @@
   cursor: pointer;
 }
 
-.login_form_section a {
+.signup_link {
   color: var(--primary-color);
   font-weight: bold;
 }
