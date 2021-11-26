@@ -1,12 +1,12 @@
 .container,
 .container_box,
-.login_form_section,
-.login_form {
+.login_signup_form_section,
+.login_signup_form {
   display: flex;
 }
 
-.login_form,
-.login_form_section {
+.login_signup_form,
+.login_signup_form_section {
   flex-direction: column;
 }
 
@@ -29,14 +29,15 @@
   background-color: white;
 }
 
-.login_form_section,
-.login_form {
+.login_signup_form_section,
+.login_signup_form {
   width: 100%;
 }
 
 .welcome,
-.login_form input,
-.login_form button {
+.login_signup_form input,
+.login_signup_form button,
+.errorMessage {
   margin: 10px 10%;
 }
 
@@ -48,17 +49,17 @@
   margin: 0px 10%;
 }
 
-.login_form {
+.login_signup_form {
   margin-top: 40px;
   margin-bottom: 40px;
 }
 
-.login_form input,
-.login_form button {
+.login_signup_form input,
+.login_signup_form button {
   width: 60%;
 }
 
-.login_form input {
+.login_signup_form input {
   font-size: 15px;
   padding: 10px 20px;
   border-radius: 20px;
@@ -66,7 +67,7 @@
   border-width: 2px;
 }
 
-.login_form button {
+.login_signup_form button {
   font-size: 16px;
   padding: 12px 20px;
   border-radius: 24px;
@@ -75,11 +76,15 @@
   color: white;
 }
 
-.login_form button:hover {
+.login_signup_form button:hover {
   cursor: pointer;
 }
 
-.signup_link {
+.redirect_link {
   color: var(--primary-color);
   font-weight: bold;
+}
+
+.errorMessage {
+  color: red;
 }
