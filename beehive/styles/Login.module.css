@@ -25,14 +25,16 @@
   margin: 10px 10%;
 }
 
-.description {
-  margin: 0px 10% 30px 10%;
+.info {
+  margin: 0px 10%;
 }
 
 .login_form {
   display: flex;
   flex-direction: column;
   width: 100%;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
 
 .login_form input {
@@ -41,14 +43,25 @@
   padding: 10px 20px;
   border-radius: 20px;
   margin: 10px 10%;
+  border: solid;
+  border-width: 2px;
 }
 
-.login_button {
+.login_form button {
   width: 60%;
   font-size: 16px;
-  padding: 10px 20px;
-  border-radius: 20px;
+  padding: 12px 20px;
+  border-radius: 24px;
   margin: 10px 10%;
   background-color: var(--primary-color);
   border: none;
+  color: white;
+}
+
+.login_form button:hover {
+  cursor: pointer;
+}
+
+.login_form_section a {
+  color: var(--primary-color);
 }
