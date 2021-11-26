@@ -64,4 +64,5 @@
 
 .login_form_section a {
   color: var(--primary-color);
+  font-weight: bold;
 }

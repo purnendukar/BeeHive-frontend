@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import styles from "../styles/Login.module.css";
+import { login } from "../apis/auth";
 
 export default function Home() {
   return (
@@ -32,9 +33,9 @@ export default function Home() {
             />
             <button type="submit">Login</button>
           </form>
-          <a href="/signup" className={styles.info}>
-            Don't have existing account?
-          </a>
+          <p className={styles.info}>
+            Don't have an account? <a href="/signup">Sign Up</a>
+          </p>
         </div>
       </div>
     </div>
