@@ -21,6 +21,7 @@ export default function LoginSignup({ children }) {
           alt="Login SignUp"
           width={1200}
           height={1000}
+          priority
         />
       </div>
       <div className={`${styles.container_box} ${styles.login_section}`}>
