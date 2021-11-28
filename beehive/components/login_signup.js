@@ -9,7 +9,7 @@ export default function LoginSignup({ children }) {
 
   useEffect(() => {
     if (typeof window !== "undefined" && localStorage.getItem("token")) {
-      router.push("/");
+      router.push("/board");
     }
   }, []);
 
