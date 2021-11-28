@@ -17,4 +17,8 @@ a {
 
 :root {
   --primary-color: #4a4d9f;
+  --primary-color-yellow: #fbaf32;
+  --seconday-color-yellow: #fdde95;
+  /* --primary-background-color: #d7d7d7; */
+  --primary-background-color: #eaeaea;
 }

@@ -11,6 +11,13 @@ import styles from "../styles/Sidebar.module.css";
 export default function Sidebar({ children }) {
   const router = useRouter();
 
+  const logoutClick = async () => {
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("token");
+      router.push("/login");
+    }
+  };
+
   useEffect(() => {
     if (typeof window !== "undefined" && !localStorage.getItem("token")) {
       router.push("/login");
@@ -39,7 +46,7 @@ export default function Sidebar({ children }) {
             <IoIosNotifications className={styles.notication__icon} />
             <span>Notifications</span>
           </div>
-          <div className={styles.logout__button}>
+          <div className={styles.logout__button} onClick={logoutClick}>
             <FiLogOut className={styles.logout__icon}></FiLogOut>
             <span>Logout</span>
           </div>

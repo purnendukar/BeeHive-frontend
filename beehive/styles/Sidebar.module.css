@@ -1,27 +1,31 @@
 .sidebar__container {
-  background-color: white;
+  background-color: var(--primary-background-color);
   height: auto;
   flex-direction: row;
   overflow: auto;
 }
 
 .sidebar__container {
-  display: flex;
   width: 300px;
   height: 100vh;
   color: black;
 }
 
 .header,
-.menu {
+.menu,
+.sidebar__container {
   display: flex;
+}
+
+.header,
+.menu {
   flex-direction: column;
   height: 100vh;
 }
 
 .header {
   width: 70px;
-  background-color: #e5b91a;
+  background-color: var(--primary-color-yellow);
   justify-content: space-between;
 }
 
@@ -35,10 +39,6 @@
   border-radius: 10px;
 }
 
-.project legend {
-  font-size: 13px;
-}
-
 .project select {
   width: 180px;
   border: none;
@@ -47,6 +47,7 @@
   -webkit-appearance: none;
   appearance: none;
   font-size: 15px;
+  background-color: inherit;
 }
 
 .profile_button,
@@ -54,10 +55,14 @@
   margin: 10px 15px;
 }
 
-.profile {
+.profile,
+.logo {
   width: 40px;
   height: 40px;
-  background-color: gainsboro;
+}
+
+.profile {
+  background-color: white;
   border-radius: 50px;
 }
 
@@ -82,8 +87,7 @@
 }
 
 .logo {
-  width: 40px;
-  height: 40px;
+  color: black;
 }
 
 .home_button {
@@ -111,8 +115,17 @@
   color: white;
   padding: 5px 10px;
   border-radius: 5px;
-  font-size: 13px;
   visibility: hidden;
+}
+
+.logout__button span,
+.notification__button span,
+.profile_button span,
+.home_button span,
+.project_setting_button span,
+.project_add_button span,
+.project legend {
+  font-size: 13px;
 }
 
 .logout__button:hover span,
