@@ -1,15 +1,37 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 
 import { GoSearch } from "react-icons/go";
 import { BiAddToQueue } from "react-icons/bi";
 
-import styles from "../styles/Board.module.css";
-import Sidebar from "../components/sidebar";
+import styles from "../../styles/Board.module.css";
+import Sidebar from "../../components/sidebar";
+import { getProject } from "../../apis/project_manager";
 
-export default function Login() {
+const Boards = () => {
   const [errorMessage, setErrorMessage] = useState("");
+  const [projectData, setProjectData] = useState(
+    JSON.stringify({
+      name: "",
+      description: "",
+    })
+  );
+  var [projectId, setProjectId] = useState(null);
   const router = useRouter();
+  const { project_id } = router.query;
+
+  useEffect(async () => {
+    if (typeof window !== "undefined") {
+      const token = localStorage.getItem("token");
+      if (projectId) {
+        const [status, result] = await getProject(token, projectId);
+        setProjectData(result);
+      }
+    }
+  }, [projectId]);
+  if (project_id != projectId) {
+    setProjectId(project_id);
+  }
 
   var task_categories = [
     <div className={styles.task__category}>
@@ -133,13 +155,8 @@ export default function Login() {
     <div className={styles.container}>
       <Sidebar></Sidebar>
       <div className={styles.board}>
-        <h1>BeeHive Board</h1>
-        <span>
-          A beehive is an enclosed structure in which some honey bee species of
-          the subgenus Apis live and raise their young. Though the word beehive
-          is commonly used to describe the nest of any bee colony, scientific
-          and professional literature distinguishes nest from hive.
-        </span>
+        <h1>{projectData["name"]}</h1>
+        <span>{projectData["description"]}</span>
         <div className={styles.task_board__header}>
           <div className={styles.search__box}>
             <input type="search" name="search" className={styles.search} />
@@ -149,9 +166,6 @@ export default function Login() {
             <legend>Assignee</legend>
             <select>
               <option>All</option>
-              <option>Purnendu Kar</option>
-              <option>Member 1 with extra long name</option>
-              <option>Member 2</option>
             </select>
           </fieldset>
           <div className={styles.add_status}>
@@ -163,4 +177,6 @@ export default function Login() {
       </div>
     </div>
   );
-}
+};
+
+export default Boards;
