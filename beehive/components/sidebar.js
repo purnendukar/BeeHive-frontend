@@ -136,6 +136,7 @@ export default function Sidebar() {
         </div>
         <div className={styles.menu__item}>Sprint</div>
         <div className={styles.menu__item}>Task</div>
+        <div className={styles.menu__item}>Status</div>
         <div className={styles.menu__item}>Members</div>
       </div>
     </div>

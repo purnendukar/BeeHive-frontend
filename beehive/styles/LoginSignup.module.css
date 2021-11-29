@@ -29,16 +29,16 @@
   background-color: white;
 }
 
-.login_signup_form_section,
-.login_signup_form {
-  width: 100%;
+.login_signup_form_section {
+  width: 60%;
+  margin: auto;
 }
 
 .welcome,
 .login_signup_form input,
 .login_signup_form button,
 .errorMessage {
-  margin: 10px 10%;
+  margin: 10px 0;
 }
 
 .welcome {
@@ -46,7 +46,7 @@
 }
 
 .info {
-  margin: 0px 10%;
+  margin: 0px;
 }
 
 .login_signup_form {
@@ -55,8 +55,9 @@
 }
 
 .login_signup_form input,
-.login_signup_form button {
-  width: 60%;
+.login_signup_form button,
+.login_signup_form {
+  width: 100%;
 }
 
 .login_signup_form input {
@@ -82,7 +83,9 @@
 
 .redirect_link {
   color: var(--primary-color);
+  color: orange;
   font-weight: bold;
+  box-shadow: 0 2px;
 }
 
 .errorMessage {

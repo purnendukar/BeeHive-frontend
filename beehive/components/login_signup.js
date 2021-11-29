@@ -17,10 +17,10 @@ export default function LoginSignup({ children }) {
     <div className={styles.container}>
       <div className={styles.container_box}>
         <Image
-          src="/assets/images/communication.png"
+          src="/assets/images/project_management_hd.png"
           alt="Login SignUp"
           width={1200}
-          height={1000}
+          height={750}
           priority
         />
       </div>

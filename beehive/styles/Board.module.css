@@ -69,11 +69,11 @@
   margin: 0 15px;
   border-width: 2px;
   padding: 8px 15px;
-  border-bottom: #4e400d solid;
+  border-bottom: #202020 solid;
 }
 
 .search__icon {
-  color: #4e400d;
+  color: #202020;
 }
 
 .task__category,
@@ -84,7 +84,7 @@
 
 .task__category {
   min-width: 350px;
-  background-color: var(--seconday-color-yellow);
+  background-color: var(--secondary-color);
   margin: 0 10px;
   border-radius: 15px;
 }
@@ -103,7 +103,7 @@
   margin: 10px 10px;
   padding: 20px;
   justify-content: space-between;
-  box-shadow: 0 1px 1px rgb(0, 0, 0, 0.2);
+  box-shadow: 0 2px 2px rgb(0, 0, 0, 0.2);
 }
 
 .task_card:hover,
@@ -146,7 +146,8 @@
 
 .add_status span {
   position: absolute;
-  background-color: #4e400d;
+  /* background-color: #4e400d; */
+  background-color: #27272c;
   color: white;
   padding: 5px 10px;
   border-radius: 5px;
