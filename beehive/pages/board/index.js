@@ -10,12 +10,6 @@ import { getProject } from "../../apis/project_manager";
 
 export default function Board() {
   const [errorMessage, setErrorMessage] = useState("");
-  const [projectData, setProjectData] = useState(
-    JSON.stringify({
-      name: "",
-      description: "",
-    })
-  );
   const router = useRouter();
 
   return (

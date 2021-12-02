@@ -2,8 +2,9 @@ import { PROJECT_API, SPRINT_API, TASK_API } from "./routes";
 
 // Project APIs function
 
-export const getProjectList = async (token) => {
-  const res = await fetch(PROJECT_API, {
+export const getProjectList = async (token, query = {}) => {
+  const project_id = query["project_id"];
+  const res = await fetch(PROJECT_API + `?project_id=${project_id}`, {
     headers: {
       "Content-Type": "application/json",
       Authorization: "Token " + token,
@@ -114,7 +115,7 @@ export const updateSprint = async (token, body, id) => {
 
 // Task APIs function
 
-export const getTaskList = async (token) => {
+export const getTaskList = async (token, query) => {
   const res = await fetch(TASK_API, {
     headers: {
       "Content-Type": "application/json",
