@@ -6,7 +6,8 @@ import { BiAddToQueue } from "react-icons/bi";
 
 import styles from "../../styles/Board.module.css";
 import Sidebar from "../../components/sidebar";
-import { getProject } from "../../apis/project_manager";
+import TaskCategory from "../../components/task_category";
+import { getProject, getProjectStatusList } from "../../apis/project_manager";
 
 const Boards = () => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -16,7 +17,9 @@ const Boards = () => {
       description: "",
     })
   );
+  const [projectStatuses, setProjectStatus] = useState([]);
   var [projectId, setProjectId] = useState(null);
+
   const router = useRouter();
   const { project_id } = router.query;
 
@@ -24,132 +27,158 @@ const Boards = () => {
     if (typeof window !== "undefined") {
       const token = localStorage.getItem("token");
       if (projectId) {
-        const [status, result] = await getProject(token, projectId);
-        setProjectData(result);
+        var [status, result] = await getProject(token, projectId);
+        switch (status) {
+          case 200:
+            setProjectData(result);
+            break;
+          default:
+            console.log("Opp's Something went wrong.");
+        }
+        [status, result] = await getProjectStatusList(token, projectId);
+        switch (status) {
+          case 200:
+            var task_categories = [];
+            result["results"].forEach((taskStatus) => {
+              task_categories.push(
+                <TaskCategory
+                  projectId={projectId}
+                  taskStatus={taskStatus}
+                ></TaskCategory>
+              );
+            });
+            setProjectStatus(task_categories);
+            break;
+          case 400:
+            break;
+          default:
+            console.log("Opp's Something went wrong.");
+        }
       }
     }
   }, [projectId]);
+
   if (project_id != projectId) {
     setProjectId(project_id);
   }
 
-  var task_categories = [
-    <div className={styles.task__category}>
-      <div className={styles.task__status}>To Do</div>
-      <div className={styles.task__list}>
-        <div className={styles.task_card}>
-          <div>
-            <strong>Task 1</strong>
-          </div>
-          <span>description</span>
-          <div>
-            <strong>Assignee:</strong> Purnendu Kar
-          </div>
-        </div>
-      </div>
-      <a className={styles.task__add} href="#">
-        + Add new task
-      </a>
-    </div>,
+  // var task_categories = [
+  //   <div className={styles.task__category}>
+  //     <div className={styles.task__status}>To Do</div>
+  //     <div className={styles.task__list}>
+  //       <div className={styles.task_card}>
+  //         <div>
+  //           <strong>Task 1</strong>
+  //         </div>
+  //         <span>description</span>
+  //         <div>
+  //           <strong>Assignee:</strong> Purnendu Kar
+  //         </div>
+  //       </div>
+  //     </div>
+  //     <a className={styles.task__add} href="#">
+  //       + Add new task
+  //     </a>
+  //   </div>,
 
-    <div className={styles.task__category}>
-      <div className={styles.task__status}>In Progress</div>
-      <div className={styles.task__list}>
-        <div className={styles.task_card}>
-          <div>
-            <strong>Task 1</strong>
-          </div>
-          <span>description</span>
-          <div>
-            <strong>Assignee:</strong> Purnendu Kar
-          </div>
-        </div>
-        <div className={styles.task_card}>
-          <div>
-            <strong>Task 1</strong>
-          </div>
-          <span>description</span>
-          <div>
-            <strong>Assignee:</strong> Purnendu Kar
-          </div>
-        </div>
-      </div>
-      <a className={styles.task__add} href="#">
-        + Add new task
-      </a>
-    </div>,
+  //   <div className={styles.task__category}>
+  //     <div className={styles.task__status}>In Progress</div>
+  //     <div className={styles.task__list}>
+  //       <div className={styles.task_card}>
+  //         <div>
+  //           <strong>Task 1</strong>
+  //         </div>
+  //         <span>description</span>
+  //         <div>
+  //           <strong>Assignee:</strong> Purnendu Kar
+  //         </div>
+  //       </div>
+  //       <div className={styles.task_card}>
+  //         <div>
+  //           <strong>Task 1</strong>
+  //         </div>
+  //         <span>description</span>
+  //         <div>
+  //           <strong>Assignee:</strong> Purnendu Kar
+  //         </div>
+  //       </div>
+  //     </div>
+  //     <a className={styles.task__add} href="#">
+  //       + Add new task
+  //     </a>
+  //   </div>,
 
-    <div className={styles.task__category}>
-      <div className={styles.task__status}>In Dev</div>
-      <div className={styles.task__list}>
-        <div className={styles.task_card}>
-          <div>
-            <strong>Task 1</strong>
-          </div>
-          <span>description</span>
-          <div>
-            <strong>Assignee:</strong> Purnendu Kar
-          </div>
-        </div>
-      </div>
-      <a className={styles.task__add} href="#">
-        + Add new task
-      </a>
-    </div>,
+  // <div className={styles.task__category}>
+  //   <div className={styles.task__status}>In Dev</div>
+  //   <div className={styles.task__list}>
+  //     <div className={styles.task_card}>
+  //       <div>
+  //         <strong>Task 1</strong>
+  //       </div>
+  //       <span>description</span>
+  //       <div>
+  //         <strong>Assignee:</strong> Purnendu Kar
+  //       </div>
+  //     </div>
+  //   </div>
+  //   <a className={styles.task__add} href="#">
+  //     + Add new task
+  //   </a>
+  // </div>,
 
-    <div className={styles.task__category}>
-      <div className={styles.task__status}>In QA</div>
-      <div className={styles.task__list}>
-        <div className={styles.task_card}>
-          <div>
-            <strong>Task 1</strong>
-          </div>
-          <span>description</span>
-          <div>
-            <strong>Assignee:</strong> Purnendu Kar
-          </div>
-        </div>
-        <div className={styles.task_card}>
-          <div>
-            <strong>Task 1</strong>
-          </div>
-          <span>description</span>
-          <div>
-            <strong>Assignee:</strong> Purnendu Kar
-          </div>
-        </div>
-        <div className={styles.task_card}>
-          <div>
-            <strong>Task 1</strong>
-          </div>
-          <span>description</span>
-          <div>
-            <strong>Assignee:</strong> Purnendu Kar
-          </div>
-        </div>
-        <div className={styles.task_card}>
-          <div>
-            <strong>Task 1</strong>
-          </div>
-          <span>description</span>
-          <div>
-            <strong>Assignee:</strong> Purnendu Kar
-          </div>
-        </div>
-      </div>
-      <a className={styles.task__add} href="#">
-        + Add new task
-      </a>
-    </div>,
+  //   <div className={styles.task__category}>
+  //     <div className={styles.task__status}>In QA</div>
+  //     <div className={styles.task__list}>
+  //       <div className={styles.task_card}>
+  //         <div>
+  //           <strong>Task 1</strong>
+  //         </div>
+  //         <span>description</span>
+  //         <div>
+  //           <strong>Assignee:</strong> Purnendu Kar
+  //         </div>
+  //       </div>
+  //       <div className={styles.task_card}>
+  //         <div>
+  //           <strong>Task 1</strong>
+  //         </div>
+  //         <span>description</span>
+  //         <div>
+  //           <strong>Assignee:</strong> Purnendu Kar
+  //         </div>
+  //       </div>
+  //       <div className={styles.task_card}>
+  //         <div>
+  //           <strong>Task 1</strong>
+  //         </div>
+  //         <span>description</span>
+  //         <div>
+  //           <strong>Assignee:</strong> Purnendu Kar
+  //         </div>
+  //       </div>
+  //       <div className={styles.task_card}>
+  //         <div>
+  //           <strong>Task 1</strong>
+  //         </div>
+  //         <span>description</span>
+  //         <div>
+  //           <strong>Assignee:</strong> Purnendu Kar
+  //         </div>
+  //       </div>
+  //     </div>
+  //     <a className={styles.task__add} href="#">
+  //       + Add new task
+  //     </a>
+  //   </div>,
 
-    <div className={styles.task__category}>
-      <div className={styles.task__status}>Completed</div>
-      <div className={styles.task__list}></div>
-      <a className={styles.task__add} href="#">
-        + Add new task
-      </a>
-    </div>,
-  ];
+  //   <div className={styles.task__category}>
+  //     <div className={styles.task__status}>Completed</div>
+  //     <div className={styles.task__list}></div>
+  //     <a className={styles.task__add} href="#">
+  //       + Add new task
+  //     </a>
+  //   </div>,
+  // ];
 
   return (
     <div className={styles.container}>
@@ -173,7 +202,7 @@ const Boards = () => {
             <span>Add Status</span>
           </div>
         </div>
-        <div className={styles.task_board}>{task_categories}</div>
+        <div className={styles.task_board}>{projectStatuses}</div>
       </div>
     </div>
   );
