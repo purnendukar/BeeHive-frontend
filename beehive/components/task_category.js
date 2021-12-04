@@ -25,6 +25,10 @@ export default function TaskCategory({ projectId, taskStatus }) {
             });
             setTaskList(task_card_list);
             break;
+          case 401:
+            localStorage.removeItem("token");
+            router.push("/login");
+            break;
           default:
             console.log("Opp's Something went wrong.");
         }

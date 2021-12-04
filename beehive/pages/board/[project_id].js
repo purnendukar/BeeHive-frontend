@@ -49,6 +49,10 @@ const Boards = () => {
             });
             setProjectStatus(task_categories);
             break;
+          case 401:
+            localStorage.removeItem("token");
+            router.push("/login");
+            break;
           case 400:
             break;
           default:
