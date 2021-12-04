@@ -115,8 +115,21 @@ export const updateSprint = async (token, body, id) => {
 
 // Task APIs function
 
+const getQueryString = (query) => {
+  var query_string = "";
+  for (const [key, value] of Object.entries(query)) {
+    if (query_string !== "") {
+      query_string += "&";
+    }
+    query_string += `&${key}=${value}`;
+  }
+  return query_string;
+};
+
 export const getTaskList = async (token, query) => {
-  const res = await fetch(TASK_API, {
+  const query_string = getQueryString(query);
+  const URL = query_string == "" ? TASK_API : `${TASK_API}?${query_string}`;
+  const res = await fetch(URL, {
     headers: {
       "Content-Type": "application/json",
       Authorization: "Token " + token,

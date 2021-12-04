@@ -13,12 +13,15 @@ export default function TaskCategory({ projectId, taskStatus }) {
     if (typeof window !== "undefined") {
       const token = localStorage.getItem("token");
       if (projectId) {
-        const [status, result] = await getTaskList(token, projectId);
+        const [status, result] = await getTaskList(token, {
+          sprint__project: projectId,
+          status: taskStatus["id"],
+        });
         switch (status) {
           case 200:
             var task_card_list = [];
             result["results"].forEach((task) => {
-              task_card_list.push(<TaskCard></TaskCard>);
+              task_card_list.push(<TaskCard task={task}></TaskCard>);
             });
             setTaskList(task_card_list);
             break;
