@@ -7,7 +7,13 @@ import { BiAddToQueue } from "react-icons/bi";
 import styles from "../../styles/Board.module.css";
 import Sidebar from "../../components/sidebar";
 import TaskCategory from "../../components/task_category";
-import { getProject, getProjectStatusList } from "../../apis/project_manager";
+
+// Backend APIs
+import {
+  getProject,
+  getProjectStatusList,
+} from "../../apis/project_manager/projects";
+import { getProjectMemberList } from "../../apis/project_manager/members";
 
 const Boards = () => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -18,8 +24,10 @@ const Boards = () => {
     })
   );
   const [projectStatuses, setProjectStatus] = useState([]);
+  const [projectMembers, setProjectMembers] = useState([]);
   var [projectId, setProjectId] = useState(null);
   var [searchText, setSearchText] = useState("");
+  var [assigneeId, setAssigneeId] = useState("");
 
   const router = useRouter();
   const { project_id } = router.query;
@@ -29,18 +37,30 @@ const Boards = () => {
     setSearchText(event.target.value);
   };
 
+  const selectAssignee = (event) => {
+    const assignee_id = event.target.value;
+    setAssigneeId(assignee_id);
+  };
+
   useEffect(async () => {
     if (typeof window !== "undefined") {
       const token = localStorage.getItem("token");
       if (projectId) {
+        // Get Project Details
         var [status, result] = await getProject(token, projectId);
         switch (status) {
           case 200:
             setProjectData(result);
             break;
+          case 401:
+            localStorage.removeItem("token");
+            router.push("/login");
+            break;
           default:
             console.log("Opp's Something went wrong.");
         }
+
+        // Get Project Status List
         [status, result] = await getProjectStatusList(token, projectId);
         switch (status) {
           case 200:
@@ -51,6 +71,7 @@ const Boards = () => {
                   projectId={projectId}
                   taskStatus={taskStatus}
                   searchText={searchText}
+                  assigneeId={assigneeId}
                 ></TaskCategory>
               );
             });
@@ -65,9 +86,33 @@ const Boards = () => {
           default:
             console.log("Opp's Something went wrong.");
         }
+
+        // Get Project Memebrs List
+        [status, result] = await getProjectMemberList(token, projectId);
+        switch (status) {
+          case 200:
+            var project_memebers = [];
+            result["results"].forEach((member) => {
+              project_memebers.push(
+                <option value={member["user"]["id"]}>
+                  {member["user"]["first_name"]} {member["user"]["last_name"]}
+                </option>
+              );
+            });
+            setProjectMembers(project_memebers);
+            break;
+          case 401:
+            localStorage.removeItem("token");
+            router.push("/login");
+            break;
+          case 400:
+            break;
+          default:
+            console.log("Opp's Something went wrong.");
+        }
       }
     }
-  }, [projectId, searchText]);
+  }, [projectId, searchText, assigneeId]);
 
   if (project_id != projectId) {
     setProjectId(project_id);
@@ -91,8 +136,9 @@ const Boards = () => {
           </div>
           <fieldset className={styles.assignee_filter}>
             <legend>Assignee</legend>
-            <select>
-              <option>All</option>
+            <select onChange={selectAssignee}>
+              <option value="">All</option>
+              {projectMembers}
             </select>
           </fieldset>
           <div className={styles.add_status}>
