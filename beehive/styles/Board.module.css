@@ -1,0 +1,159 @@
+.container,
+.search__box,
+.board,
+.task_board,
+.task_board__header,
+.task__category,
+.task_card {
+  display: flex;
+}
+
+.container,
+.task__category {
+  width: 100vw;
+}
+
+.container,
+.board {
+  height: 100vh;
+}
+
+.container,
+.task_card {
+  background-color: white;
+}
+
+.container {
+  flex-direction: row;
+  overflow: auto;
+}
+
+.board {
+  width: calc(100vw - 300px);
+  padding: 20px;
+}
+
+.task_board,
+.task_board__header {
+  width: -webkit-fill-available;
+}
+
+.task_board,
+.task_board__header {
+  flex-direction: row;
+}
+
+.task_board__header {
+  height: 80px;
+  margin-top: 30px;
+  margin-bottom: 10px;
+}
+
+.task_board__header,
+.search__box,
+.task__status {
+  align-items: center;
+}
+
+.search,
+.assignee_filter select {
+  outline: none;
+}
+
+.search {
+  width: 300px;
+  background-color: inherit;
+}
+
+.search__box {
+  margin: 0 15px;
+  border-width: 2px;
+  padding: 8px 15px;
+  border-bottom: #202020 solid;
+}
+
+.search__icon {
+  color: #202020;
+}
+
+.task__category,
+.task_card,
+.board {
+  flex-direction: column;
+}
+
+.task__category {
+  min-width: 350px;
+  background-color: var(--secondary-color);
+  margin: 0 10px;
+  border-radius: 15px;
+}
+
+.task__status {
+  display: grid;
+  min-height: 50px;
+  height: 50px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.task_card {
+  height: 150px;
+  border-radius: 10px;
+  margin: 10px 10px;
+  padding: 20px;
+  justify-content: space-between;
+  box-shadow: 0 2px 2px rgb(0, 0, 0, 0.2);
+}
+
+.task_card:hover,
+.assignee_filter select:hover,
+.add_status :hover {
+  cursor: pointer;
+}
+
+.assignee_filter,
+.assignee_filter select,
+.search {
+  border: none;
+}
+
+.assignee_filter legend,
+.add_status span {
+  font-size: 13px;
+}
+
+.assignee_filter select {
+  appearance: none;
+  width: 120px;
+  font-size: 15px;
+}
+
+.task__add {
+  text-align: center;
+  margin: 30px;
+}
+
+.task_board,
+.task__list {
+  overflow: scroll;
+}
+
+.add_status__icon {
+  width: 25px;
+  height: 25px;
+}
+
+.add_status span {
+  position: absolute;
+  /* background-color: #4e400d; */
+  background-color: #27272c;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  visibility: hidden;
+}
+
+.add_status:hover span {
+  visibility: visible;
+}

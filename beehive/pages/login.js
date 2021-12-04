@@ -24,7 +24,7 @@ export default function Login() {
         if (typeof window !== "undefined") {
           localStorage.setItem("token", result["token"]);
         }
-        router.push("/");
+        router.push("/board");
         break;
       case 400:
         setErrorMessage("Invalid input");
