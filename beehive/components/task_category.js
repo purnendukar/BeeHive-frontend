@@ -4,7 +4,7 @@ import styles from "../styles/Board.module.css";
 import TaskCard from "./task_card";
 import { getTaskList } from "../apis/project_manager";
 
-export default function TaskCategory({ projectId, taskStatus }) {
+export default function TaskCategory({ projectId, taskStatus, searchText }) {
   const statusHeading = taskStatus["name"];
 
   const [taskList, setTaskList] = useState([]);
@@ -16,6 +16,7 @@ export default function TaskCategory({ projectId, taskStatus }) {
         const [status, result] = await getTaskList(token, {
           sprint__project: projectId,
           status: taskStatus["id"],
+          search: searchText,
         });
         switch (status) {
           case 200:

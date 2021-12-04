@@ -1,5 +1,21 @@
 import { PROJECT_API, SPRINT_API, TASK_API } from "./routes";
 
+// Create query dict to string for url parameter
+
+const getQueryString = (query) => {
+  var query_string = "";
+  for (const [key, value] of Object.entries(query)) {
+    if (!value) {
+      continue;
+    }
+    if (query_string !== "") {
+      query_string += "&";
+    }
+    query_string += `${key}=${value}`;
+  }
+  return query_string;
+};
+
 // Project APIs function
 
 export const getProjectList = async (token, query = {}) => {
@@ -114,17 +130,6 @@ export const updateSprint = async (token, body, id) => {
 };
 
 // Task APIs function
-
-const getQueryString = (query) => {
-  var query_string = "";
-  for (const [key, value] of Object.entries(query)) {
-    if (query_string !== "") {
-      query_string += "&";
-    }
-    query_string += `&${key}=${value}`;
-  }
-  return query_string;
-};
 
 export const getTaskList = async (token, query) => {
   const query_string = getQueryString(query);

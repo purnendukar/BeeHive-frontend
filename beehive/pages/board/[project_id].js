@@ -19,9 +19,15 @@ const Boards = () => {
   );
   const [projectStatuses, setProjectStatus] = useState([]);
   var [projectId, setProjectId] = useState(null);
+  var [searchText, setSearchText] = useState("");
 
   const router = useRouter();
   const { project_id } = router.query;
+
+  const searchTask = async (event) => {
+    event.preventDefault();
+    setSearchText(event.target.value);
+  };
 
   useEffect(async () => {
     if (typeof window !== "undefined") {
@@ -44,6 +50,7 @@ const Boards = () => {
                 <TaskCategory
                   projectId={projectId}
                   taskStatus={taskStatus}
+                  searchText={searchText}
                 ></TaskCategory>
               );
             });
@@ -60,7 +67,7 @@ const Boards = () => {
         }
       }
     }
-  }, [projectId]);
+  }, [projectId, searchText]);
 
   if (project_id != projectId) {
     setProjectId(project_id);
@@ -74,7 +81,12 @@ const Boards = () => {
         <span>{projectData["description"]}</span>
         <div className={styles.task_board__header}>
           <div className={styles.search__box}>
-            <input type="search" name="search" className={styles.search} />
+            <input
+              type="search"
+              name="search"
+              className={styles.search}
+              onChange={searchTask}
+            />
             <GoSearch size={20} className={styles.search__icon} />
           </div>
           <fieldset className={styles.assignee_filter}>

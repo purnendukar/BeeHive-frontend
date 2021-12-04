@@ -5,7 +5,6 @@ import styles from "../styles/Board.module.css";
 import { getProjectList } from "../apis/project_manager";
 
 export default function TaskCard({ task }) {
-  console.log(task);
   const taskTitle = task["title"];
   const taskAssignee = `${task["assignee"]["first_name"]} ${task["assignee"]["last_name"]}`;
   return (
