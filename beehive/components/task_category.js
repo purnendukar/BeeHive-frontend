@@ -2,9 +2,14 @@ import { useEffect, useState } from "react";
 
 import styles from "../styles/Board.module.css";
 import TaskCard from "./task_card";
-import { getTaskList } from "../apis/project_manager";
+import { getTaskList } from "../apis/project_manager/tasks";
 
-export default function TaskCategory({ projectId, taskStatus, searchText }) {
+export default function TaskCategory({
+  projectId,
+  taskStatus,
+  searchText,
+  assigneeId,
+}) {
   const statusHeading = taskStatus["name"];
 
   const [taskList, setTaskList] = useState([]);
@@ -17,6 +22,7 @@ export default function TaskCategory({ projectId, taskStatus, searchText }) {
           sprint__project: projectId,
           status: taskStatus["id"],
           search: searchText,
+          assignee: assigneeId,
         });
         switch (status) {
           case 200:

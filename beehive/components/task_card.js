@@ -1,8 +1,4 @@
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
-
 import styles from "../styles/Board.module.css";
-import { getProjectList } from "../apis/project_manager";
 
 export default function TaskCard({ task }) {
   const taskTitle = task["title"];

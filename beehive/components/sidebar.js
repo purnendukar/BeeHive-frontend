@@ -8,7 +8,7 @@ import { GoSettings } from "react-icons/go";
 import { AiOutlineAppstoreAdd } from "react-icons/ai";
 
 import styles from "../styles/Sidebar.module.css";
-import { getProjectList } from "../apis/project_manager";
+import { getProjectList } from "../apis/project_manager/projects";
 
 export default function Sidebar() {
   var [projectData, setProjectData] = useState([]);
