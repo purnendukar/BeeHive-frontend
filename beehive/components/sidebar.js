@@ -27,6 +27,7 @@ export default function Sidebar() {
     setProjectId(project_id);
   }
 
+  // Redirect to selected project
   const selectProject = async (event) => {
     event.preventDefault();
     if (router.pathname.includes("[project_id]")) {
@@ -47,6 +48,8 @@ export default function Sidebar() {
     }
     if (typeof window !== "undefined") {
       const token = localStorage.getItem("token");
+
+      // Get project list
       const [status, result] = await getProjectList(token);
 
       switch (status) {
