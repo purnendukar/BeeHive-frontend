@@ -1,4 +1,4 @@
-import { useRouter } from "next/router";
+import { useRouter, useState } from "next/router";
 
 import styles from "../../styles/Board.module.css";
 import Sidebar from "../../components/sidebar";
