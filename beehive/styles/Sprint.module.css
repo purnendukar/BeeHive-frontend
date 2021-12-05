@@ -65,26 +65,15 @@
 }
 
 .sprint_edit__icon {
-  margin: 0.7em auto;
-}
-
-.sprint_edit__icon {
   width: 1.4em;
   height: 1.4em;
-}
-
-.search {
-  outline: none;
+  margin: 0.7em auto;
 }
 
 .sprint_header,
 .search_box,
 .sprint_action {
   align-items: center;
-}
-
-.add_sprint span {
-  visibility: hidden;
 }
 
 .search_box {
@@ -98,6 +87,7 @@
   width: 300px;
   background-color: inherit;
   border: none;
+  outline: none;
 }
 
 .search_icon {
@@ -122,8 +112,8 @@
   visibility: visible;
 }
 
-.add_sprint span,
-.sprint_edit span {
+.add_sprint .add_sprint__icon_info,
+.sprint_edit .sprint_edit__icon_info {
   position: absolute;
   background-color: #27272c;
   color: white;

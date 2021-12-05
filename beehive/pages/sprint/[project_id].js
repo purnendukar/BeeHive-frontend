@@ -96,7 +96,7 @@ export default function Board() {
           </div>
           <div className={styles.add_sprint}>
             <BiAddToQueue className={styles.add_sprint__icon} />
-            <span>Add Sprint</span>
+            <span className={styles.add_sprint__icon_info}>Add Sprint</span>
           </div>
         </div>
         <div className={styles.sprint_list}>{sprints}</div>
