@@ -39,6 +39,8 @@ export default function Board() {
               toDate.getMonth() + 1
             }-${toDate.getDate()}`
           : "";
+
+        // Get Sprints List
         var [status, result] = await getSprintList(token, projectId, {
           start_date__gte: from_date,
           end_date__gte: from_date,
