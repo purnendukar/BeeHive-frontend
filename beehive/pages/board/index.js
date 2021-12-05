@@ -1,4 +1,5 @@
-import { useRouter, useState } from "next/router";
+import { useState } from "react";
+import { useRouter } from "next/router";
 
 import styles from "../../styles/Board.module.css";
 import Sidebar from "../../components/sidebar";
