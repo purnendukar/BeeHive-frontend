@@ -21,7 +21,7 @@ export const getSprintList = async (token, project_id, queryString) => {
   return [status, result];
 };
 
-export const getSprint = async (token, id) => {
+export const getSprint = async (token, project_id, id) => {
   const SPRINT_API = PROJECT_API + `/${project_id}/sprints`;
   const res = await fetch(SPRINT_API + `/${id}`, {
     headers: {
@@ -35,7 +35,7 @@ export const getSprint = async (token, id) => {
   return [status, result];
 };
 
-export const createSprint = async (token, body) => {
+export const createSprint = async (token, project_id, body) => {
   const SPRINT_API = PROJECT_API + `/${project_id}/sprints`;
   const res = await fetch(SPRINT_API, {
     headers: {
@@ -50,7 +50,7 @@ export const createSprint = async (token, body) => {
   return [status, result];
 };
 
-export const updateSprint = async (token, body, id) => {
+export const updateSprint = async (token, project_id, body, id) => {
   const SPRINT_API = PROJECT_API + `/${project_id}/sprints`;
   const res = await fetch(SPRINT_API + `/${id}`, {
     headers: {
