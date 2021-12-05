@@ -20,10 +20,14 @@
   flex-direction: column;
 }
 
+.sprint__plan,
+.sprint_card {
+  padding: 20px;
+}
+
 .sprint__plan {
   height: 100vh;
   width: calc(100vw - 300px);
-  padding: 20px;
 }
 
 .sprint_card,
@@ -36,8 +40,6 @@
 }
 
 .sprint_card {
-  margin: 10px 0;
-  padding: 20px;
   border-radius: 10px;
   min-height: 100px;
   background-color: #eee;
@@ -49,7 +51,8 @@
 
 .sprint_description,
 .sprint_heading,
-.sprint_duration {
+.sprint_duration,
+.sprint_card {
   margin: 10px 0;
 }
 
@@ -75,7 +78,8 @@
 }
 
 .sprint_header,
-.search_box {
+.search_box,
+.sprint_action {
   align-items: center;
 }
 
@@ -113,11 +117,13 @@
   cursor: pointer;
 }
 
-.add_sprint:hover span {
+.add_sprint:hover span,
+.sprint_edit:hover span {
   visibility: visible;
 }
 
-.add_sprint span {
+.add_sprint span,
+.sprint_edit span {
   position: absolute;
   background-color: #27272c;
   color: white;

@@ -18,7 +18,10 @@ export default function SprintCard({ sprint }) {
         </div>
       </div>
       <div className={styles.sprint_action}>
-        <BiEdit className={styles.sprint_edit__icon}></BiEdit>
+        <div className={styles.sprint_edit}>
+          <BiEdit className={styles.sprint_edit__icon}></BiEdit>
+          <span>Edit Sprint</span>
+        </div>
       </div>
     </div>
   );
