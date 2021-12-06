@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 
-import styles from "../styles/Board.module.css";
+import styles from "../../styles/Board.module.css";
 import TaskCard from "./task_card";
-import { getTaskList } from "../apis/project_manager/tasks";
+import { getTaskList } from "../../apis/project_manager/tasks";
 
 export default function TaskCategory({
   projectId,
