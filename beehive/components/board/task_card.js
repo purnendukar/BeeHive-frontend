@@ -1,4 +1,4 @@
-import styles from "../styles/Board.module.css";
+import styles from "../../styles/Board.module.css";
 
 export default function TaskCard({ task }) {
   const taskTitle = task["title"];

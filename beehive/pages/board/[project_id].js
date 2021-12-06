@@ -6,7 +6,7 @@ import { BiAddToQueue } from "react-icons/bi";
 
 import styles from "../../styles/Board.module.css";
 import Sidebar from "../../components/sidebar";
-import TaskCategory from "../../components/task_category";
+import TaskCategory from "../../components/board/task_category";
 
 // Backend APIs
 import {
