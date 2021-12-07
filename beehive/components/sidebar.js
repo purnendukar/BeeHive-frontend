@@ -90,18 +90,21 @@ export default function Sidebar() {
   };
 
   const sprintRoute = async () => {
-    if (router.pathname.includes("[project_id]")) {
-      router.push({
-        pathname: "/sprint/[project_id]",
-        query: {
-          project_id: project_id,
-        },
-      });
-    } else if (project_id) {
-      router.push("/sprint" + `/${project_id}`);
-    } else {
-      router.push("/sprint");
-    }
+    router.push({
+      pathname: "/project/[project_id]/sprints",
+      query: {
+        project_id: project_id,
+      },
+    });
+  };
+
+  const taskRoute = async () => {
+    router.push({
+      pathname: "/project/[project_id]/tasks",
+      query: {
+        project_id: project_id,
+      },
+    });
   };
 
   return (
@@ -155,7 +158,9 @@ export default function Sidebar() {
         <div className={styles.menu__item} onClick={sprintRoute}>
           Sprint
         </div>
-        <div className={styles.menu__item}>Task</div>
+        <div className={styles.menu__item} onClick={taskRoute}>
+          Task
+        </div>
         <div className={styles.menu__item}>Status</div>
         <div className={styles.menu__item}>Members</div>
       </div>
