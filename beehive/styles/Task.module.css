@@ -166,8 +166,12 @@
   outline: none;
 }
 
-.task_row {
+.task_row,
+.task_table__header {
   height: 40px;
+}
+
+.task_row {
   background-color: var(--secondary-background-color);
 }
 
@@ -185,5 +189,4 @@
 
 .task_table__header {
   background-color: var(--secondary-color);
-  height: 40px;
 }
