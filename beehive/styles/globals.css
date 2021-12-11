@@ -18,10 +18,10 @@ a {
 :root {
   --primary-color-violet: #4a4d9f;
   --secondary-color-violet: #d3d3e2;
-  /* --primary-color-orange: #b0882e; */
   --primary-color-yellow: #fbaf32;
   --seconday-color-yellow: #ffdc8d;
   --primary-background-color: #eaeaea;
+  --secondary-background-color: #f3f3f3;
   --primary-color-blue: #315b9a;
   --secondary-color-blue: #c9d5e6;
   --primary-color: var(--primary-color-yellow);

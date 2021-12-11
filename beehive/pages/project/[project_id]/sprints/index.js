@@ -7,11 +7,11 @@ import DatePicker from "react-date-picker/dist/entry.nostyle";
 import "react-calendar/dist/Calendar.css";
 import "react-date-picker/dist/DatePicker.css";
 
-import { getSprintList } from "../../apis/project_manager/sprints";
+import { getSprintList } from "../../../../apis/project_manager/sprints";
 
-import styles from "../../styles/Sprint.module.css";
-import Sidebar from "../../components/sidebar";
-import SprintCard from "../../components/sprint/card";
+import styles from "../../../../styles/Sprint.module.css";
+import Sidebar from "../../../../components/sidebar";
+import SprintCard from "../../../../components/sprint/card";
 
 export default function Board() {
   const [errorMessage, setErrorMessage] = useState("");
@@ -41,7 +41,7 @@ export default function Board() {
           : "";
 
         // Get Sprints List
-        var [status, result] = await getSprintList(token, projectId, {
+        const [status, result] = await getSprintList(token, projectId, {
           start_date__gte: from_date,
           end_date__gte: from_date,
           start_date__lte: to_date,

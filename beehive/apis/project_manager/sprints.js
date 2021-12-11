@@ -3,8 +3,8 @@ import { getQueryString } from "../utils";
 
 // Sprint APIs function
 
-export const getSprintList = async (token, project_id, queryString) => {
-  const query_string = getQueryString(queryString);
+export const getSprintList = async (token, project_id, query = {}) => {
+  const query_string = getQueryString(query);
   const SPRINT_API = PROJECT_API + `/${project_id}/sprints`;
   const res = await fetch(
     query_string == "" ? SPRINT_API : SPRINT_API + `?${query_string}`,
