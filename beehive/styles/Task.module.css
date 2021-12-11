@@ -1,0 +1,189 @@
+.container,
+.task__plan,
+.task_card,
+.task_detail,
+.task_action,
+.search_box,
+.task_header {
+  display: flex;
+}
+
+.container,
+.task_card,
+.task_header {
+  flex-direction: row;
+}
+
+.task__plan,
+.task_detail,
+.task_action {
+  flex-direction: column;
+}
+
+.task__plan,
+.task_card {
+  padding: 20px;
+}
+
+.task__plan {
+  height: 100vh;
+  width: calc(100vw - 300px);
+}
+
+.task_card,
+.task_header {
+  width: calc(100vw - 340px);
+}
+
+.task_header {
+  height: 80px;
+}
+
+.task_card {
+  border-radius: 10px;
+  min-height: 100px;
+  background-color: #eee;
+}
+
+.task_heading {
+  font-weight: bold;
+}
+
+.task_description,
+.task_heading,
+.task_duration,
+.task_card {
+  margin: 10px 0;
+}
+
+.task_detail {
+  width: 90vw;
+}
+
+.task_action {
+  width: 10vw;
+}
+
+.task_edit__icon {
+  width: 1.4em;
+  height: 1.4em;
+  margin: 0.7em auto;
+}
+
+.task_header,
+.search_box,
+.task_action {
+  align-items: center;
+}
+
+.search_box {
+  border-width: 2px;
+  padding: 8px 15px;
+  border-bottom: #202020 solid;
+  margin-right: 10px;
+}
+
+.search {
+  width: 300px;
+  background-color: inherit;
+  outline: none;
+}
+
+.search_icon {
+  color: #202020;
+}
+
+.add_task {
+  width: 1.5em;
+}
+
+.add_task__icon {
+  height: 1.5em;
+  width: 1.5em;
+}
+
+.add_task:hover {
+  cursor: pointer;
+}
+
+.add_task:hover span,
+.task_edit:hover span {
+  visibility: visible;
+}
+
+.add_task .add_task__icon_info,
+.task_edit .task_edit__icon_info {
+  position: absolute;
+  background-color: #27272c;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  visibility: hidden;
+  font-size: 13px;
+}
+
+.add_task__icon:hover,
+.task_edit__icon:hover {
+  cursor: pointer;
+}
+
+.duration {
+  margin: 0 10px;
+  width: 400px;
+}
+
+.task_list {
+  overflow: scroll;
+  margin-top: 15px;
+}
+
+.task_card:hover,
+.assignee_filter select:hover,
+.add_status :hover {
+  cursor: pointer;
+}
+
+.assignee_filter,
+.assignee_filter select,
+.search,
+.task_table__header {
+  border: none;
+}
+
+.assignee_filter legend,
+.add_status span {
+  font-size: 13px;
+}
+
+.assignee_filter select {
+  appearance: none;
+  width: 120px;
+  font-size: 15px;
+}
+
+.search,
+.assignee_filter select {
+  outline: none;
+}
+
+.task_row {
+  height: 40px;
+  background-color: var(--secondary-background-color);
+}
+
+.task_row__priority,
+.task_row__id,
+.task_row__sprint,
+.task_row__assignee,
+.task_row__status {
+  text-align: center;
+}
+
+.task_row__title {
+  padding: 0 0.8rem;
+}
+
+.task_table__header {
+  background-color: var(--secondary-color);
+  height: 40px;
+}
