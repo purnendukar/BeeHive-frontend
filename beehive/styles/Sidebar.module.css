@@ -74,7 +74,6 @@
 .logout__icon,
 .project__setting,
 .project__add {
-  /* color: #4e400d; */
   color: white;
   width: 30px;
   height: 30px;
@@ -88,7 +87,6 @@
 }
 
 .logo {
-  /* color: black; */
   color: white;
 }
 
@@ -113,7 +111,6 @@
 .project_setting_button span,
 .project_add_button span {
   position: absolute;
-  /* background-color: #4e400d; */
   background-color: #27272c;
   color: white;
   padding: 5px 10px;
