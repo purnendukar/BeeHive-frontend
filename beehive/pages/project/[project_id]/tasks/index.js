@@ -136,7 +136,7 @@ export default function Board() {
           </div>
           <fieldset className={styles.assignee_filter}>
             <legend>Assignee</legend>
-            <select onChange={setAssignee}>
+            <select className={styles.assignee_select} onChange={setAssignee}>
               <option value="">All</option>
               {projectMembers}
             </select>

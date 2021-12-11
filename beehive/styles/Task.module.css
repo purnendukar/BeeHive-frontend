@@ -64,12 +64,6 @@
   width: 10vw;
 }
 
-.task_edit__icon {
-  width: 1.4em;
-  height: 1.4em;
-  margin: 0.7em auto;
-}
-
 .task_header,
 .search_box,
 .task_action {
@@ -86,7 +80,6 @@
 .search {
   width: 300px;
   background-color: inherit;
-  outline: none;
 }
 
 .search_icon {
@@ -102,17 +95,11 @@
   width: 1.5em;
 }
 
-.add_task:hover {
-  cursor: pointer;
-}
-
-.add_task:hover span,
-.task_edit:hover span {
+.add_task:hover span {
   visibility: visible;
 }
 
-.add_task .add_task__icon_info,
-.task_edit .task_edit__icon_info {
+.add_task .add_task__icon_info {
   position: absolute;
   background-color: #27272c;
   color: white;
@@ -123,7 +110,8 @@
 }
 
 .add_task__icon:hover,
-.task_edit__icon:hover {
+.task_card:hover,
+.add_task:hover {
   cursor: pointer;
 }
 
@@ -137,32 +125,25 @@
   margin-top: 15px;
 }
 
-.task_card:hover,
-.assignee_filter select:hover,
-.add_status :hover {
-  cursor: pointer;
-}
-
 .assignee_filter,
-.assignee_filter select,
+.assignee_filter .assignee_select,
 .search,
 .task_table__header {
   border: none;
 }
 
-.assignee_filter legend,
-.add_status span {
+.assignee_filter legend {
   font-size: 13px;
 }
 
-.assignee_filter select {
+.assignee_filter .assignee_select {
   appearance: none;
   width: 120px;
   font-size: 15px;
 }
 
 .search,
-.assignee_filter select {
+.assignee_filter .assignee_select {
   outline: none;
 }
 
