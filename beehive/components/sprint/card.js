@@ -6,9 +6,7 @@ export default function SprintCard({ sprint }) {
   return (
     <div className={styles.sprint_card}>
       <div className={styles.sprint_detail}>
-        <div className={styles.sprint_heading}>
-          Sprint {sprint["number"]} ({sprint["name"]})
-        </div>
+        <div className={styles.sprint_heading}>Sprint {sprint["number"]}</div>
         <span className={styles.sprint_description}>
           {sprint["description"]}
         </span>
