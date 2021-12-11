@@ -41,7 +41,7 @@ export default function Board() {
           : "";
 
         // Get Sprints List
-        var [status, result] = await getSprintList(token, projectId, {
+        const [status, result] = await getSprintList(token, projectId, {
           start_date__gte: from_date,
           end_date__gte: from_date,
           start_date__lte: to_date,
