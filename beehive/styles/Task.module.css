@@ -126,24 +126,33 @@
 }
 
 .assignee_filter,
-.assignee_filter .assignee_select,
+.sprint_filter,
+.assignee_select,
+.sprint_select,
 .search,
 .task_table__header {
   border: none;
 }
 
-.assignee_filter legend {
+.assignee_legend,
+.sprint_legend {
   font-size: 13px;
 }
 
-.assignee_filter .assignee_select {
-  appearance: none;
+.assignee_filter,
+.sprint_filter {
+  margin: 0 1rem;
+}
+
+.assignee_select,
+.sprint_select {
   width: 120px;
   font-size: 15px;
 }
 
 .search,
-.assignee_filter .assignee_select {
+.assignee_select,
+.sprint_select {
   outline: none;
 }
 
