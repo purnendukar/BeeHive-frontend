@@ -89,10 +89,10 @@ export default function Board() {
       if (projectId) {
         // Get Task List
         var [status, result] = await getTaskList(token, {
-          project: projectId,
-          assignee: assigneeId,
-          sprint: sprint,
-          search: searchText,
+          sprint__project: projectId,
+          assignee: assigneeId ? assigneeId.target.value : "",
+          sprint: sprint ? sprint.target.value : "",
+          search: searchText ? searchText.target.value : "",
         });
         switch (status) {
           case 200:
@@ -135,15 +135,15 @@ export default function Board() {
             <GoSearch size={20} className={styles.search_icon} />
           </div>
           <fieldset className={styles.assignee_filter}>
-            <legend>Assignee</legend>
+            <legend className={styles.assignee_legend}>Assignee</legend>
             <select className={styles.assignee_select} onChange={setAssignee}>
               <option value="">All</option>
               {projectMembers}
             </select>
           </fieldset>
-          <fieldset className={styles.assignee_filter}>
-            <legend>Sprint</legend>
-            <select onChange={setSprint}>
+          <fieldset className={styles.sprint_filter}>
+            <legend className={styles.sprint_legend}>Sprint</legend>
+            <select onChange={setSprint} className={styles.sprint_select}>
               <option value="">All</option>
               {sprints}
             </select>
