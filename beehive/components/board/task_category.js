@@ -10,7 +10,7 @@ export default function TaskCategory({
   searchText,
   assigneeId,
 }) {
-  const statusHeading = taskStatus["name"];
+  const statusHeading = taskStatus["title"];
 
   const [taskList, setTaskList] = useState([]);
 
