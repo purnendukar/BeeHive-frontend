@@ -1,4 +1,5 @@
 import { PROJECT_API } from "../routes";
+import { getQueryString } from "../utils";
 
 // Project APIs function
 
@@ -58,14 +59,19 @@ export const updateProject = async (token, body, id) => {
 
 // Project Task Status APIs function
 
-export const getProjectStatusList = async (token, project_id) => {
-  const res = await fetch(PROJECT_API + `/${project_id}/status`, {
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: "Token " + token,
-    },
-    method: "GET",
-  });
+export const getProjectStatusList = async (token, project_id, query = {}) => {
+  const query_string = getQueryString(query);
+  const STATUS_API = PROJECT_API + `/${project_id}/status`;
+  const res = await fetch(
+    query_string == "" ? STATUS_API : STATUS_API + `?${query_string}`,
+    {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: "Token " + token,
+      },
+      method: "GET",
+    }
+  );
   const status = await res.status;
   const result = await res.json();
   return [status, result];

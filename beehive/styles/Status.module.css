@@ -1,0 +1,139 @@
+.container,
+.status__plan,
+.status_card,
+.status_detail,
+.status_action,
+.search_box,
+.status_header {
+  display: flex;
+}
+
+.container,
+.status_card,
+.status_header {
+  flex-direction: row;
+}
+
+.status__plan,
+.status_detail,
+.status_action {
+  flex-direction: column;
+}
+
+.status__plan,
+.status_card {
+  padding: 20px;
+}
+
+.status__plan {
+  height: 100vh;
+  width: calc(100vw - 300px);
+}
+
+.status_card,
+.status_header {
+  width: calc(100vw - 340px);
+}
+
+.status_header {
+  height: 80px;
+}
+
+.status_card {
+  border-radius: 10px;
+  min-height: 100px;
+  background-color: #eee;
+}
+
+.status_heading {
+  font-weight: bold;
+}
+
+.status_description,
+.status_heading,
+.status_duration,
+.status_card {
+  margin: 10px 0;
+}
+
+.status_detail {
+  width: 90vw;
+}
+
+.status_action {
+  width: 10vw;
+}
+
+.status_edit__icon {
+  width: 1.4em;
+  height: 1.4em;
+  margin: 0.7em auto;
+}
+
+.status_header,
+.search_box,
+.status_action {
+  align-items: center;
+}
+
+.search_box {
+  border-width: 2px;
+  padding: 8px 15px;
+  border-bottom: #202020 solid;
+  margin-right: 10px;
+}
+
+.search {
+  width: 300px;
+  background-color: inherit;
+  border: none;
+  outline: none;
+}
+
+.search_icon {
+  color: #202020;
+}
+
+.add_status {
+  width: 1.5em;
+}
+
+.add_status__icon {
+  height: 1.5em;
+  width: 1.5em;
+}
+
+.add_status:hover {
+  cursor: pointer;
+}
+
+.add_status:hover span,
+.status_edit:hover span {
+  visibility: visible;
+}
+
+.add_status .add_status__icon_info,
+.status_edit .status_edit__icon_info {
+  position: absolute;
+  background-color: #27272c;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  visibility: hidden;
+  font-size: 13px;
+}
+
+.add_status__icon:hover,
+.status_edit__icon:hover {
+  cursor: pointer;
+}
+
+.duration {
+  margin: 0 10px;
+  width: 400px;
+}
+
+.status_list {
+  overflow: scroll;
+  margin-top: 15px;
+}

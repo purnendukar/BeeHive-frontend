@@ -107,6 +107,15 @@ export default function Sidebar() {
     });
   };
 
+  const statusRoute = async () => {
+    router.push({
+      pathname: "/project/[project_id]/status",
+      query: {
+        project_id: project_id,
+      },
+    });
+  };
+
   return (
     <div className={styles.sidebar__container}>
       <div className={styles.header}>
@@ -161,7 +170,9 @@ export default function Sidebar() {
         <div className={styles.menu__item} onClick={taskRoute}>
           Task
         </div>
-        <div className={styles.menu__item}>Status</div>
+        <div className={styles.menu__item} onClick={statusRoute}>
+          Status
+        </div>
         <div className={styles.menu__item}>Members</div>
       </div>
     </div>

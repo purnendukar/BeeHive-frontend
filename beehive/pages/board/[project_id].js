@@ -32,11 +32,6 @@ const Boards = () => {
   const router = useRouter();
   const { project_id } = router.query;
 
-  const searchTask = async (event) => {
-    event.preventDefault();
-    setSearchText(event.target.value);
-  };
-
   const selectAssignee = (event) => {
     const assignee_id = event.target.value;
     setAssigneeId(assignee_id);
@@ -70,8 +65,8 @@ const Boards = () => {
                 <TaskCategory
                   projectId={projectId}
                   taskStatus={taskStatus}
-                  searchText={searchText}
-                  assigneeId={assigneeId}
+                  searchText={searchText ? searchText.target.value : ""}
+                  assigneeId={assigneeId ? assigneeId.target.value : ""}
                 ></TaskCategory>
               );
             });
@@ -130,13 +125,13 @@ const Boards = () => {
               type="search"
               name="search"
               className={styles.search}
-              onChange={searchTask}
+              onChange={setSearchText}
             />
             <GoSearch size={20} className={styles.search__icon} />
           </div>
           <fieldset className={styles.assignee_filter}>
             <legend>Assignee</legend>
-            <select onChange={selectAssignee}>
+            <select onChange={setAssigneeId}>
               <option value="">All</option>
               {projectMembers}
             </select>
