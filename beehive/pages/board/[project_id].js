@@ -32,11 +32,6 @@ const Boards = () => {
   const router = useRouter();
   const { project_id } = router.query;
 
-  const selectAssignee = (event) => {
-    const assignee_id = event.target.value;
-    setAssigneeId(assignee_id);
-  };
-
   useEffect(async () => {
     if (typeof window !== "undefined") {
       const token = localStorage.getItem("token");
