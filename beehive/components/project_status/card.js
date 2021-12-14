@@ -2,13 +2,13 @@ import { BiEdit } from "react-icons/bi";
 
 import styles from "../../styles/Status.module.css";
 
-export default function ProjectStatusCard({ taskStatus }) {
+export default function ProjectStatusCard({ projectStatus }) {
   return (
     <div className={styles.status_card}>
       <div className={styles.status_detail}>
-        <div className={styles.status_heading}>{taskStatus["title"]}</div>
+        <div className={styles.status_heading}>{projectStatus["title"]}</div>
         <span className={styles.status_description}>
-          {taskStatus["description"]}
+          {projectStatus["description"]}
         </span>
       </div>
       <div className={styles.status_action}>
