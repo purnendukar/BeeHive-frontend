@@ -32,7 +32,7 @@ export default function Board() {
             var project_status_list = [];
             result["results"].forEach((project_status) => {
               project_status_list.push(
-                <ProjectStatusCard taskStatus={project_status} />
+                <ProjectStatusCard projectStatus={project_status} />
               );
             });
             setStatusList(project_status_list);
